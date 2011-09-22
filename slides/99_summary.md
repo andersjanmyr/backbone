@@ -3,11 +3,11 @@
 
 ## Code
 
-* http:://github.com/andersjanmyr/TODO CODE HERE 
+* http:://github.com/andersjanmyr/backbone
 
 ## Presentation
 
-* http://github.com/andersjanmyr/TODO PRESENTATION HERE
+* http://andersjanmyr.github.com/backbone
 
 
 !SLIDE
