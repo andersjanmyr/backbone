@@ -37,11 +37,28 @@
     editor = new LocalizationEditor();
     alert(editor.el + ' ' );
 
+!SLIDE small code
+# View (.$)
+
+    @@@javascript
+    Gui.Chapter = Backbone.View.extend({
+      serialize : function() {
+        return {
+          title: this.$(".title").text(),
+          start: this.$(".start-page").text(),
+          end:   this.$(".end-page").text()
+        };
+      }
+    });
+
 !SLIDE smaller code execute
 # View (render)
 
     @@@javascript
     var Bookmark = Backbone.View.extend({
+      initialize: function() {
+        _.bindAll(this, 'render');
+      },
       render: function() {
         // The template method comes from underscore
         $(this.el).html(this.template(this.model.toJSON()));
@@ -56,22 +73,8 @@
     var compiled = _.template("hello: <%= name %>");
     result = compiled({name : 'moe'});
 
-!SLIDE small code
-# View (.$)
-
-    @javascript
-    ui.Chapter = Backbone.View.extend({
-      serialize : function() {
-        return {
-          title: this.$(".title").text(),
-          start: this.$(".start-page").text(),
-          end:   this.$(".end-page").text()
-        };
-      }
-    });
-
     
-!SLIDE smaller code execute
+!SLIDE smaller code 
 # View (events)
     
     @@@javascript
@@ -80,11 +83,6 @@
         "dblclick"                : "open",
         "click .icon.doc"         : "select",
         "contextmenu .icon.doc"   : "showMenu",
-      },
-
-      render: function() {
-        $(this.el).html(this.template(this.model.toJSON()));
-        return this;
       },
 
       open: function() {
@@ -96,6 +94,19 @@
       },
       ...
     });
+
+!SLIDE smaller bullets
+# Events
+
+* "add" (model, collection) — added to collection
+* "remove" (model, collection) — removed from collection
+* "reset" (collection) — collection replaced
+* "change" (model, collection) —  model attributes changed.
+* "change:[attribute]" (model, collection) — specific attribute changed
+* "destroy" (model, collection) — model is destroyed.
+* "error" (model, collection) —  model validation fails, or save call fails
+* "route:[name]" (router) — router's routes has matched.
+* "all" — any triggered event, event name as the first argument.
 
 
 !SLIDE smaller
@@ -113,7 +124,30 @@
 
     });
 
-
+!SLIDE small 
+# View bindAll
     
+    @@@javascript
+    var MessageList = Backbone.View.extend({
 
+      initialize: function() {
+        _.bindAll(this, 'render', 'renderOne');
+      }
+
+      render: function() {},
+      renderOne: function() {}
+
+    });
+
+!SLIDE small
+# View bindAll not
+    
+    @@@coffeescript
+    # Coffeescript
+    class MessageList extend Backbone.View
+
+      render: =>
+
+      renderOne: =>
+        
 
