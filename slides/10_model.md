@@ -89,7 +89,15 @@
         if attrs.legs in [4,2]
           return "#{attrs.name}s don't have #{attr.legs} legs"
   
- 
+!SLIDE code small execute
+# Model toJSON
+
+    @@@coffeescript
+    class Product extends Backbone.Model
+
+    tapir = new Product {id: 234, name: 'Kjell'} 
+    result = tapir.toJSON()
+
 !SLIDE code smaller execute
 # Model Persistence
 
@@ -138,15 +146,23 @@
         ...
       }
 
-
-!SLIDE code small execute
-# Model toJSON
+!SLIDE small
+# Backbone.Sync
 
     @@@coffeescript
-    class Product extends Backbone.Model
+    # method is ['create', 'read', 'update', 'delete']
+    # model is model or collection
+    # options are any jQuery request options
+    sync(method, model, [options])
 
-    tapir = new Product {id: 234, name: 'Kjell'} 
-    result = tapir.toJSON()
+
+!SLIDE small bullets
+# Backbone.Sync Mapping
+
+* create → POST   /collection
+* read → GET   /collection[/id]
+* update → PUT   /collection/id
+* delete → DELETE   /collection/id
 
 
 

@@ -73,7 +73,23 @@
     var compiled = _.template("hello: <%= name %>");
     result = compiled({name : 'moe'});
 
-    
+!SLIDE small code
+# View `template`
+
+    @@@coffeescript
+    class window.AnimalView extends Backbone.View
+      template: _.template($('#title-template').html())
+
+!SLIDE small code 
+# View Template HTML
+
+    @@@html
+    <script type="text/template" id="title-template">
+      <h1><%= title %></h1>
+      <h2><%= subtitle %></h2>
+      <img src='<%= imageUrl %>'/>
+    </script>    
+
 !SLIDE smaller code 
 # View (events)
     
