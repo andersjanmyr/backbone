@@ -1,9 +1,10 @@
 !SLIDE bullets small
 # Code and Slides
 
-## Code
+## More Information
 
-* http:://github.com/andersjanmyr/backbone
+* http://documentcloud.github.com/backbone
+* http://documentcloud.github.com/backbone/docs/backbone.html
 
 ## Presentation
 
